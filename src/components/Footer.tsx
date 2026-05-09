@@ -70,7 +70,7 @@ export default function Footer({ setActiveSection }: FooterProps) {
           <div className="lg:col-span-4">
             <div className="flex items-center gap-3 mb-5">
               <Image
-                src="/logo.png"
+                src="/OEC.png"
                 alt="Ophir Engineers Logo"
                 width={40}
                 height={40}

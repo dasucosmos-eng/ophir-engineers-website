@@ -109,7 +109,7 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
             >
               <div className="relative">
                 <Image
-                  src="/logo.png"
+                  src="/OEC.png"
                   alt="Ophir Engineers Logo"
                   width={48}
                   height={48}
@@ -159,7 +159,7 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
                 <div className="bg-gradient-to-br from-[#0C2340] to-[#1B3A5C] p-6">
                   <div className="flex items-center gap-3">
                     <Image
-                      src="/logo.png"
+                      src="/OEC.png"
                       alt="Ophir Engineers Logo"
                       width={40}
                       height={40}

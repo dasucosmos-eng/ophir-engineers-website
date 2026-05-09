@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import Image from 'next/image';
 
 interface HomeSectionProps {
   setActiveSection: (section: string) => void;
@@ -152,6 +153,23 @@ export default function HomeSection({ setActiveSection }: HomeSectionProps) {
               <br className="hidden sm:block" />
               PRIVATE LIMITED
             </motion.h1>
+
+            {/* OEC Logo */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="mt-6 mb-8"
+            >
+              <Image
+                src="/OEC.png"
+                alt="Ophir Engineers and Consultants Logo"
+                width={280}
+                height={80}
+                className="h-16 sm:h-20 lg:h-24 w-auto object-contain drop-shadow-lg"
+                priority
+              />
+            </motion.div>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
