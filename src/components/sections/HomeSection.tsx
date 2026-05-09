@@ -175,7 +175,7 @@ export default function HomeSection({ setActiveSection }: HomeSectionProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-xl lg:text-2xl text-gray-300 font-light mb-4"
+              className="text-xl lg:text-2xl text-white font-light mb-4"
             >
               Engineering Reliability, Delivering Excellence.
             </motion.p>
