@@ -158,15 +158,15 @@ export default function HomeSection({ setActiveSection }: HomeSectionProps) {
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="mt-6 mb-8"
+              transition={{ duration: 0.8, delay: 0.25 }}
+              className="mt-4 mb-8"
             >
               <Image
-                src="/OEC.png"
+                src="/oec-logo.png"
                 alt="Ophir Engineers and Consultants Logo"
-                width={280}
-                height={80}
-                className="h-16 sm:h-20 lg:h-24 w-auto object-contain drop-shadow-lg"
+                width={1000}
+                height={1000}
+                className="h-20 sm:h-24 lg:h-28 w-auto object-contain drop-shadow-[0_4px_20px_rgba(0,0,0,0.3)]"
                 priority
               />
             </motion.div>

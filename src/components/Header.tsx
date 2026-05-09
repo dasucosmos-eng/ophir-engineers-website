@@ -109,11 +109,11 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
             >
               <div className="relative">
                 <Image
-                  src="/OEC.png"
+                  src="/oec-logo.png"
                   alt="Ophir Engineers Logo"
-                  width={48}
-                  height={48}
-                  className="h-10 w-10 lg:h-12 lg:w-12 rounded-lg object-contain group-hover:scale-105 transition-transform duration-300"
+                  width={1000}
+                  height={1000}
+                  className="h-9 w-9 lg:h-11 lg:w-11 rounded-lg object-contain group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <div className="flex flex-col">
@@ -159,11 +159,11 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
                 <div className="bg-gradient-to-br from-[#0C2340] to-[#1B3A5C] p-6">
                   <div className="flex items-center gap-3">
                     <Image
-                      src="/OEC.png"
+                      src="/oec-logo.png"
                       alt="Ophir Engineers Logo"
-                      width={40}
-                      height={40}
-                      className="h-10 w-10 rounded-lg object-contain"
+                      width={1000}
+                      height={1000}
+                      className="h-9 w-9 rounded-lg object-contain"
                     />
                     <div>
                       <span className="text-white font-bold text-lg tracking-wide">
