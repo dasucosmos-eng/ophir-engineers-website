@@ -166,7 +166,7 @@ export default function HomeSection({ setActiveSection }: HomeSectionProps) {
                 alt="Ophir Engineers and Consultants Logo"
                 width={1000}
                 height={1000}
-                className="h-20 sm:h-24 lg:h-28 w-auto object-contain drop-shadow-[0_4px_20px_rgba(0,0,0,0.3)]"
+                className="h-28 sm:h-36 lg:h-44 w-auto object-contain drop-shadow-[0_4px_20px_rgba(0,0,0,0.3)]"
                 priority
               />
             </motion.div>

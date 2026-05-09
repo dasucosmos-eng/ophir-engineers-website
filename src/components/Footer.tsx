@@ -74,7 +74,7 @@ export default function Footer({ setActiveSection }: FooterProps) {
                 alt="Ophir Engineers Logo"
                 width={1000}
                 height={1000}
-                className="h-9 w-9 rounded-lg object-contain"
+                className="h-12 w-12 rounded-xl object-contain"
               />
               <div>
                 <span className="text-white font-bold text-base tracking-wide">

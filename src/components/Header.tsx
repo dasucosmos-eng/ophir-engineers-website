@@ -113,7 +113,7 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
                   alt="Ophir Engineers Logo"
                   width={1000}
                   height={1000}
-                  className="h-9 w-9 lg:h-11 lg:w-11 rounded-lg object-contain group-hover:scale-105 transition-transform duration-300"
+                  className="h-12 w-12 lg:h-14 lg:w-14 rounded-xl object-contain group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <div className="flex flex-col">
@@ -163,7 +163,7 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
                       alt="Ophir Engineers Logo"
                       width={1000}
                       height={1000}
-                      className="h-9 w-9 rounded-lg object-contain"
+                      className="h-10 w-10 rounded-xl object-contain"
                     />
                     <div>
                       <span className="text-white font-bold text-lg tracking-wide">
