@@ -249,32 +249,16 @@ export default function HomeSection({ setActiveSection }: HomeSectionProps) {
                 </p>
                 <div className="space-y-4 text-gray-600 leading-relaxed">
                   <p>
-                    Ophir Engineers and Consultants (OPC) Private Limited was founded by{' '}
-                    <strong>Rakshana Ophir</strong>, a highly skilled and passionate Electrical
-                    Engineer with a vision to bridge the gap between theoretical engineering
-                    excellence and practical, on-site execution.
+                    I am Rakshan Ophir, the Founder, Director, and Chief Engineer of Ophir Engineers and Consultants (OPC) Private Limited, an engineering consultancy committed to delivering reliable and efficient electrical engineering solutions. With over 4 years of experience in the industry, I specialize in electrical system design, HT/LT power distribution, renewable energy systems, and engineering consultancy services for residential, commercial, and industrial projects.
                   </p>
                   <p>
-                    With a strong academic foundation in Electrical and Electronics Engineering
-                    and extensive hands-on experience across a range of industries—including
-                    commercial, residential, healthcare, industrial, and renewable energy
-                    sectors—Rakshana brings a rare combination of deep technical expertise and
-                    project management acumen.
+                    My professional journey has been driven by a strong passion for engineering excellence, technical precision, and practical problem-solving. As a Licensed Electrical Supervisor, Chartered Engineer, and Chartered Electrical Safety Engineer, I focus on ensuring that every project is executed with the highest standards of safety, quality, and compliance.
                   </p>
                   <p>
-                    Her approach to engineering is rooted in precision, safety, and strict
-                    adherence to Indian and international codes (IS, IEC, IEEE, NEC). From
-                    designing complex power distribution networks and high-voltage substations
-                    to performing advanced power system studies using ETAP, she ensures that
-                    every project meets the highest standards of reliability and compliance.
+                    I strongly believe that engineering is not just about designing systems, but about creating sustainable, efficient, and future-ready infrastructure that adds long-term value. Through Ophir Engineers and Consultants, I aim to build a technically strong and trusted organization known for professionalism, innovation, and client-focused execution.
                   </p>
                   <p>
-                    Under her leadership, Ophir Engineers has grown into a trusted name in the
-                    electrical engineering consultancy and EPC space, known for delivering
-                    projects on time, within budget, and with uncompromising quality. Her
-                    client-first philosophy, combined with technical mastery, makes Ophir
-                    Engineers the ideal partner for any organization seeking safe, efficient,
-                    and future-ready electrical infrastructure.
+                    With a commitment to continuous learning and modern engineering practices, I continue to work towards delivering dependable solutions that contribute to the growth of the electrical and power sector.
                   </p>
                 </div>
               </div>
