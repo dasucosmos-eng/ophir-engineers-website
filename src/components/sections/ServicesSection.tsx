@@ -7,6 +7,7 @@ import {
   ClipboardCheck,
   HardHat,
   Zap,
+  CheckCircle2,
 } from 'lucide-react';
 import {
   Accordion,
@@ -101,7 +102,7 @@ const fadeUp = {
 const staggerContainer = {
   animate: {
     transition: {
-      staggerChildren: 0.12,
+      staggerChildren: 0.1,
     },
   },
 };
@@ -110,12 +111,25 @@ export default function ServicesSection() {
   return (
     <div>
       {/* Banner */}
-      <section className="bg-gradient-to-r from-[#0C2340] via-[#1B3A5C] to-[#0C2340] py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <motion.h1
+      <section className="relative bg-gradient-to-br from-[#060D1A] via-[#0C2340] to-[#1B3A5C] py-20 lg:py-24 overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.02]" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
+          backgroundSize: '40px 40px',
+        }} />
+        <div className="relative max-w-7xl mx-auto px-4 text-center">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+          >
+            <span className="inline-block text-[#D4A843] text-xs font-semibold tracking-[0.2em] uppercase mb-4">
+              What We Offer
+            </span>
+          </motion.div>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="text-3xl lg:text-5xl font-bold text-white"
           >
             Our Services
@@ -124,32 +138,31 @@ export default function ServicesSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-gray-300 mt-4 max-w-2xl mx-auto"
+            className="text-gray-400 mt-4 max-w-xl mx-auto text-base lg:text-lg"
           >
             End-to-end electrical engineering solutions for every project need
           </motion.p>
         </div>
       </section>
 
-      {/* Services List */}
-      <section className="py-16 lg:py-24 bg-white">
+      {/* Service Overview Cards */}
+      <section className="py-20 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          {/* Service Overview Cards */}
           <motion.div
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-16"
+            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-20"
           >
             {services.map((service, index) => (
-              <motion.div key={service.id} variants={fadeUp}>
-                <Card className="h-full border-0 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group cursor-pointer">
+              <motion.div key={service.id} variants={fadeUp} transition={{ duration: 0.5 }}>
+                <Card className="h-full border border-gray-100 bg-white shadow-sm hover:shadow-lg card-glow rounded-2xl cursor-default">
                   <CardContent className="p-5 text-center">
-                    <div className="w-12 h-12 mx-auto bg-[#0C2340] rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-12 h-12 mx-auto bg-gradient-to-br from-[#0C2340] to-[#1B3A5C] rounded-xl flex items-center justify-center mb-3 shadow-md shadow-[#0C2340]/10 group-hover:scale-110 transition-transform duration-300">
                       <service.icon className="h-6 w-6 text-[#D4A843]" />
                     </div>
-                    <h3 className="text-sm font-bold text-[#0C2340] leading-tight">
+                    <h3 className="text-[13px] font-bold text-[#0C2340] leading-tight">
                       {service.title}
                     </h3>
                   </CardContent>
@@ -160,44 +173,55 @@ export default function ServicesSection() {
 
           {/* Detailed Service Accordion */}
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl lg:text-3xl font-bold text-[#0C2340] mb-8 text-center">
-              Detailed Service Breakdown
-            </h2>
-            <Accordion type="multiple" className="space-y-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-10"
+            >
+              <h2 className="text-2xl lg:text-3xl font-bold text-[#0C2340] mb-2">
+                Detailed Service Breakdown
+              </h2>
+              <p className="text-gray-500 text-sm">
+                Click on each service to explore the full scope of our offerings
+              </p>
+            </motion.div>
+            <Accordion type="multiple" className="space-y-3">
               {services.map((service) => (
                 <AccordionItem
                   key={service.id}
                   value={service.id}
-                  className="border border-gray-200 rounded-xl px-6 shadow-sm data-[state=open]:shadow-md transition-shadow"
+                  className="border border-gray-100 rounded-2xl px-6 shadow-sm data-[state=open]:shadow-lg data-[state=open]:border-[#D4A843]/20 transition-all duration-300 bg-white"
                 >
-                  <AccordionTrigger className="hover:no-underline py-5">
+                  <AccordionTrigger className="hover:no-underline py-5 [&>svg]:text-[#D4A843]">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-[#0C2340] rounded-lg flex items-center justify-center flex-shrink-0">
+                      <div className="w-10 h-10 bg-gradient-to-br from-[#0C2340] to-[#1B3A5C] rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm">
                         <service.icon className="h-5 w-5 text-[#D4A843]" />
                       </div>
                       <div className="text-left">
-                        <span className="text-lg font-bold text-[#0C2340]">
+                        <span className="text-base font-bold text-[#0C2340]">
                           {service.title}
                         </span>
-                        <p className="text-sm text-gray-500 mt-0.5 hidden sm:block">
+                        <p className="text-xs text-gray-400 mt-0.5 hidden sm:block">
                           {service.description}
                         </p>
                       </div>
                     </div>
                   </AccordionTrigger>
                   <AccordionContent className="pb-5">
-                    <div className="ml-13">
+                    <div className="ml-[52px]">
                       <p className="text-gray-500 text-sm mb-4 sm:hidden">
                         {service.description}
                       </p>
-                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                         {service.items.map((item, idx) => (
                           <li
                             key={idx}
-                            className="flex items-start gap-2 text-gray-600 text-sm"
+                            className="flex items-start gap-2.5 text-gray-600 text-sm"
                           >
-                            <span className="w-1.5 h-1.5 bg-[#D4A843] rounded-full mt-2 flex-shrink-0" />
-                            {item}
+                            <CheckCircle2 className="h-4 w-4 text-[#D4A843] flex-shrink-0 mt-0.5" />
+                            <span>{item}</span>
                           </li>
                         ))}
                       </ul>

@@ -23,10 +23,10 @@ const sectionComponents: Record<Section, React.ComponentType<{ setActiveSection:
 };
 
 const pageTransition = {
-  initial: { opacity: 0, y: 10 },
+  initial: { opacity: 0, y: 8 },
   animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -10 },
-  transition: { duration: 0.35, ease: 'easeInOut' },
+  exit: { opacity: 0, y: -8 },
+  transition: { duration: 0.3, ease: [0.25, 0.8, 0.25, 1] },
 };
 
 export default function Page() {
@@ -40,6 +40,18 @@ export default function Page() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [activeSection]);
 
+  // Listen for custom navigate events from child components
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      if (customEvent.detail) {
+        setActiveSection(customEvent.detail as Section);
+      }
+    };
+    window.addEventListener('navigate', handler);
+    return () => window.removeEventListener('navigate', handler);
+  }, []);
+
   const ActiveComponent = sectionComponents[activeSection];
 
   return (
@@ -49,11 +61,7 @@ export default function Page() {
       <main className="flex-1">
         <AnimatePresence mode="wait">
           <motion.div key={activeSection} {...pageTransition}>
-            {activeSection === 'about' || activeSection === 'industries' ? (
-              <ActiveComponent setActiveSection={handleSetSection} />
-            ) : (
-              <ActiveComponent setActiveSection={handleSetSection} />
-            )}
+            <ActiveComponent setActiveSection={handleSetSection} />
           </motion.div>
         </AnimatePresence>
       </main>

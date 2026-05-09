@@ -1,7 +1,8 @@
 'use client';
 
-import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageCircle, ArrowUp } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
+import Image from 'next/image';
 
 interface FooterProps {
   setActiveSection: (section: string) => void;
@@ -17,7 +18,7 @@ const quickLinks = [
 ];
 
 const serviceLinks = [
-  'Electrical Design',
+  'Electrical Design & Engineering',
   'Consultancy & Approvals',
   'Testing & Commissioning',
   'EPC Services',
@@ -30,30 +31,80 @@ export default function Footer({ setActiveSection }: FooterProps) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <footer className="bg-[#0C2340] text-white">
+    <footer className="bg-[#070F1C] text-white">
+      {/* CTA Strip */}
+      <div className="bg-gradient-to-r from-[#D4A843] to-[#B8922E]">
+        <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-[#0C2340] font-semibold text-sm sm:text-base">
+            Ready to power your next project?
+          </p>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => handleQuickLinkClick('contact')}
+              className="bg-[#0C2340] hover:bg-[#1B3A5C] text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors duration-200"
+            >
+              Get a Free Quote
+            </button>
+            <a
+              href="https://wa.me/918464842267"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20BA5C] text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors duration-200"
+            >
+              <MessageCircle className="h-4 w-4" />
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 py-12 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          {/* Column 1 - About */}
-          <div>
-            <h3 className="text-lg font-bold mb-4 text-[#D4A843]">About Ophir</h3>
-            <p className="text-gray-300 text-sm leading-relaxed">
-              Ophir Engineers and Consultants (OPC) Private Limited is a premier Electrical
-              Engineering Consultancy and EPC firm delivering precise, reliable, and
-              code-compliant engineering solutions.
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
+          {/* Column 1 - About (wider) */}
+          <div className="lg:col-span-4">
+            <div className="flex items-center gap-3 mb-5">
+              <Image
+                src="/logo.png"
+                alt="Ophir Engineers Logo"
+                width={40}
+                height={40}
+                className="h-9 w-9 rounded-lg object-contain"
+              />
+              <div>
+                <span className="text-white font-bold text-base tracking-wide">
+                  OPHIR ENGINEERS
+                </span>
+                <p className="text-[#D4A843] text-[10px] tracking-[0.15em] uppercase">
+                  & Consultants
+                </p>
+              </div>
+            </div>
+            <p className="text-gray-400 text-sm leading-relaxed mb-4">
+              Ophir Engineers and Consultants (OPC) Private Limited is a premier
+              Electrical Engineering Consultancy and EPC firm delivering precise,
+              reliable, and code-compliant engineering solutions. From detailed
+              electrical designs to substation commissioning, we provide end-to-end
+              services focused on safety, efficiency, and long-term performance.
             </p>
           </div>
 
           {/* Column 2 - Quick Links */}
-          <div>
-            <h3 className="text-lg font-bold mb-4 text-[#D4A843]">Quick Links</h3>
-            <ul className="space-y-2">
+          <div className="lg:col-span-2">
+            <h3 className="text-sm font-bold mb-5 text-white uppercase tracking-wider">
+              Quick Links
+            </h3>
+            <ul className="space-y-2.5">
               {quickLinks.map((link) => (
                 <li key={link.key}>
                   <button
                     onClick={() => handleQuickLinkClick(link.key)}
-                    className="text-gray-300 hover:text-[#D4A843] transition-colors text-sm"
+                    className="text-gray-400 hover:text-[#D4A843] transition-colors text-sm duration-200 hover:translate-x-1 inline-block"
                   >
                     {link.label}
                   </button>
@@ -63,72 +114,86 @@ export default function Footer({ setActiveSection }: FooterProps) {
           </div>
 
           {/* Column 3 - Services */}
-          <div>
-            <h3 className="text-lg font-bold mb-4 text-[#D4A843]">Services</h3>
-            <ul className="space-y-2">
+          <div className="lg:col-span-3">
+            <h3 className="text-sm font-bold mb-5 text-white uppercase tracking-wider">
+              Our Services
+            </h3>
+            <ul className="space-y-2.5">
               {serviceLinks.map((service) => (
                 <li key={service}>
-                  <span className="text-gray-300 text-sm">{service}</span>
+                  <button
+                    onClick={() => handleQuickLinkClick('services')}
+                    className="text-gray-400 hover:text-[#D4A843] transition-colors text-sm duration-200 hover:translate-x-1 inline-block"
+                  >
+                    {service}
+                  </button>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Column 4 - Contact Info */}
-          <div>
-            <h3 className="text-lg font-bold mb-4 text-[#D4A843]">Contact Info</h3>
-            <div className="space-y-3">
+          <div className="lg:col-span-3">
+            <h3 className="text-sm font-bold mb-5 text-white uppercase tracking-wider">
+              Contact Us
+            </h3>
+            <div className="space-y-3.5">
               <a
                 href="mailto:office@ophirengineers.com"
-                className="flex items-center gap-2 text-gray-300 hover:text-[#D4A843] transition-colors text-sm"
+                className="flex items-center gap-2.5 text-gray-400 hover:text-[#D4A843] transition-colors text-sm group"
               >
-                <Mail className="h-4 w-4 flex-shrink-0" />
+                <div className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-[#D4A843]/10 transition-colors">
+                  <Mail className="h-3.5 w-3.5" />
+                </div>
                 <span>office@ophirengineers.com</span>
               </a>
               <a
                 href="tel:+918464842267"
-                className="flex items-center gap-2 text-gray-300 hover:text-[#D4A843] transition-colors text-sm"
+                className="flex items-center gap-2.5 text-gray-400 hover:text-[#D4A843] transition-colors text-sm group"
               >
-                <Phone className="h-4 w-4 flex-shrink-0" />
+                <div className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-[#D4A843]/10 transition-colors">
+                  <Phone className="h-3.5 w-3.5" />
+                </div>
                 <span>+91 8464842267</span>
               </a>
-              <div className="flex items-start gap-2 text-gray-300 text-sm">
-                <MapPin className="h-4 w-4 flex-shrink-0 mt-0.5" />
+              <div className="flex items-start gap-2.5 text-gray-400 text-sm">
+                <div className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <MapPin className="h-3.5 w-3.5" />
+                </div>
                 <span>Hyderabad, Telangana, India</span>
               </div>
-              <a
-                href="https://wa.me/918464842267"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 mt-3 bg-[#25D366] hover:bg-[#20BA5C] text-white px-4 py-2.5 rounded-lg text-sm font-medium transition-colors"
-              >
-                <MessageCircle className="h-4 w-4" />
-                Chat on WhatsApp
-              </a>
             </div>
           </div>
         </div>
       </div>
 
       {/* Map Placeholder */}
-      <div className="bg-[#1B3A5C]">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="bg-gray-700/50 rounded-lg h-48 flex items-center justify-center mb-8">
-            <div className="text-center text-gray-400">
-              <MapPin className="h-8 w-8 mx-auto mb-2" />
-              <p className="font-medium">Our Location</p>
-              <p className="text-sm">Hyderabad, Telangana, India</p>
+      <div className="border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-4 py-8">
+          <div className="bg-[#0C2340] rounded-2xl h-48 flex items-center justify-center border border-white/5">
+            <div className="text-center">
+              <MapPin className="h-8 w-8 mx-auto mb-2 text-[#D4A843]/60" />
+              <p className="text-gray-400 font-medium text-sm">Our Location — Hyderabad, Telangana</p>
+              <p className="text-gray-500 text-xs mt-1">Google Maps integration coming soon</p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Bottom Bar */}
-      <Separator className="bg-white/10" />
-      <div className="max-w-7xl mx-auto px-4 py-4">
-        <p className="text-center text-gray-400 text-sm">
-          ©2026 Ophir Engineers and Consultants (OPC) Pvt Ltd. All rights reserved.
-        </p>
+      <div className="border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-4 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-gray-500 text-xs">
+            &copy; 2026 Ophir Engineers and Consultants (OPC) Pvt Ltd. All rights reserved.
+          </p>
+          <button
+            onClick={scrollToTop}
+            className="flex items-center gap-1.5 text-gray-500 hover:text-[#D4A843] text-xs transition-colors group"
+          >
+            <span>Back to top</span>
+            <ArrowUp className="h-3 w-3 group-hover:-translate-y-0.5 transition-transform" />
+          </button>
+        </div>
       </div>
     </footer>
   );

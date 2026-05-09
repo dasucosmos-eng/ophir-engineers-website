@@ -9,6 +9,7 @@ import {
   MessageCircle,
   Send,
   Clock,
+  CheckCircle2,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -16,7 +17,11 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 
-export default function ContactSection() {
+interface ContactSectionProps {
+  setActiveSection: (section: string) => void;
+}
+
+export default function ContactSection({ setActiveSection }: ContactSectionProps) {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
@@ -50,7 +55,6 @@ export default function ContactSection() {
 
     setIsSubmitting(true);
 
-    // Simulate form submission
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
@@ -85,12 +89,25 @@ export default function ContactSection() {
   return (
     <div>
       {/* Banner */}
-      <section className="bg-gradient-to-r from-[#0C2340] via-[#1B3A5C] to-[#0C2340] py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <motion.h1
+      <section className="relative bg-gradient-to-br from-[#060D1A] via-[#0C2340] to-[#1B3A5C] py-20 lg:py-24 overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.02]" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
+          backgroundSize: '40px 40px',
+        }} />
+        <div className="relative max-w-7xl mx-auto px-4 text-center">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+          >
+            <span className="inline-block text-[#D4A843] text-xs font-semibold tracking-[0.2em] uppercase mb-4">
+              Get In Touch
+            </span>
+          </motion.div>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="text-3xl lg:text-5xl font-bold text-white"
           >
             Contact Us
@@ -99,7 +116,7 @@ export default function ContactSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-gray-300 mt-4 max-w-2xl mx-auto"
+            className="text-gray-400 mt-4 max-w-xl mx-auto text-base lg:text-lg"
           >
             Get in touch with our engineering team
           </motion.p>
@@ -107,10 +124,10 @@ export default function ContactSection() {
       </section>
 
       {/* Contact Content */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-20 lg:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
-            {/* Contact Form - 3 columns */}
+            {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -118,14 +135,16 @@ export default function ContactSection() {
               transition={{ duration: 0.6 }}
               className="lg:col-span-3"
             >
-              <Card className="border-0 shadow-lg">
-                <CardContent className="p-6 lg:p-8">
-                  <h2 className="text-2xl font-bold text-[#0C2340] mb-2">
-                    Send Us a Message
-                  </h2>
-                  <p className="text-gray-500 text-sm mb-6">
-                    Fill out the form below and our team will get back to you within 24 hours.
-                  </p>
+              <Card className="border border-gray-100 shadow-sm rounded-2xl overflow-hidden">
+                <CardContent className="p-6 lg:p-10">
+                  <div className="mb-8">
+                    <h2 className="text-2xl font-bold text-[#0C2340] mb-2">
+                      Send Us a Message
+                    </h2>
+                    <p className="text-gray-500 text-sm">
+                      Fill out the form below and our team will get back to you within 24 business hours.
+                    </p>
+                  </div>
                   <form onSubmit={handleSubmit} className="space-y-5">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
@@ -133,7 +152,7 @@ export default function ContactSection() {
                           htmlFor="name"
                           className="block text-sm font-medium text-[#0C2340] mb-1.5"
                         >
-                          Full Name <span className="text-red-500">*</span>
+                          Full Name <span className="text-red-400">*</span>
                         </label>
                         <Input
                           id="name"
@@ -141,7 +160,7 @@ export default function ContactSection() {
                           value={formData.name}
                           onChange={handleChange}
                           placeholder="John Doe"
-                          className="border-gray-200 focus:border-[#0C2340]"
+                          className="border-gray-200 focus:border-[#0C2340] focus:ring-[#0C2340]/10 rounded-lg h-11"
                           required
                         />
                       </div>
@@ -150,7 +169,7 @@ export default function ContactSection() {
                           htmlFor="email"
                           className="block text-sm font-medium text-[#0C2340] mb-1.5"
                         >
-                          Email Address <span className="text-red-500">*</span>
+                          Email Address <span className="text-red-400">*</span>
                         </label>
                         <Input
                           id="email"
@@ -159,7 +178,7 @@ export default function ContactSection() {
                           value={formData.email}
                           onChange={handleChange}
                           placeholder="john@example.com"
-                          className="border-gray-200 focus:border-[#0C2340]"
+                          className="border-gray-200 focus:border-[#0C2340] focus:ring-[#0C2340]/10 rounded-lg h-11"
                           required
                         />
                       </div>
@@ -179,7 +198,7 @@ export default function ContactSection() {
                           value={formData.phone}
                           onChange={handleChange}
                           placeholder="+91 9876543210"
-                          className="border-gray-200 focus:border-[#0C2340]"
+                          className="border-gray-200 focus:border-[#0C2340] focus:ring-[#0C2340]/10 rounded-lg h-11"
                         />
                       </div>
                       <div>
@@ -195,7 +214,7 @@ export default function ContactSection() {
                           value={formData.subject}
                           onChange={handleChange}
                           placeholder="Electrical Design Inquiry"
-                          className="border-gray-200 focus:border-[#0C2340]"
+                          className="border-gray-200 focus:border-[#0C2340] focus:ring-[#0C2340]/10 rounded-lg h-11"
                         />
                       </div>
                     </div>
@@ -204,7 +223,7 @@ export default function ContactSection() {
                         htmlFor="message"
                         className="block text-sm font-medium text-[#0C2340] mb-1.5"
                       >
-                        Message <span className="text-red-500">*</span>
+                        Message <span className="text-red-400">*</span>
                       </label>
                       <Textarea
                         id="message"
@@ -213,18 +232,18 @@ export default function ContactSection() {
                         onChange={handleChange}
                         placeholder="Tell us about your project requirements..."
                         rows={5}
-                        className="border-gray-200 focus:border-[#0C2340] resize-none"
+                        className="border-gray-200 focus:border-[#0C2340] focus:ring-[#0C2340]/10 resize-none rounded-lg"
                         required
                       />
                     </div>
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full sm:w-auto bg-[#D4A843] hover:bg-[#B8922E] text-[#0C2340] font-semibold px-8 py-5 text-base"
+                      className="w-full sm:w-auto bg-[#0C2340] hover:bg-[#1B3A5C] text-white font-semibold px-8 py-5 text-base rounded-xl transition-all duration-200 hover:shadow-lg group"
                     >
                       {isSubmitting ? (
                         <span className="flex items-center gap-2">
-                          <span className="h-4 w-4 border-2 border-[#0C2340]/30 border-t-[#0C2340] rounded-full animate-spin" />
+                          <span className="h-4 w-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                           Sending...
                         </span>
                       ) : (
@@ -239,25 +258,25 @@ export default function ContactSection() {
               </Card>
             </motion.div>
 
-            {/* Contact Details - 2 columns */}
+            {/* Contact Details */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="lg:col-span-2 space-y-6"
+              className="lg:col-span-2 space-y-5"
             >
               {/* Contact Info Card */}
-              <Card className="border-0 shadow-lg bg-[#0C2340]">
-                <CardContent className="p-6 lg:p-8">
-                  <h3 className="text-xl font-bold text-white mb-6">Contact Information</h3>
+              <Card className="border-0 shadow-xl rounded-2xl overflow-hidden bg-gradient-to-br from-[#0C2340] to-[#1B3A5C]">
+                <CardContent className="p-7">
+                  <h3 className="text-lg font-bold text-white mb-6">Contact Information</h3>
                   <div className="space-y-5">
-                    <div className="flex items-start gap-3">
-                      <div className="w-10 h-10 bg-[#1B3A5C] rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Mail className="h-5 w-5 text-[#D4A843]" />
+                    <div className="flex items-start gap-3.5">
+                      <div className="w-10 h-10 bg-white/[0.06] rounded-xl flex items-center justify-center flex-shrink-0">
+                        <Mail className="h-4.5 w-4.5 text-[#D4A843]" />
                       </div>
                       <div>
-                        <p className="text-gray-400 text-xs font-semibold uppercase tracking-wider mb-0.5">
+                        <p className="text-gray-500 text-[11px] font-semibold uppercase tracking-wider mb-0.5">
                           Email
                         </p>
                         <a
@@ -268,12 +287,12 @@ export default function ContactSection() {
                         </a>
                       </div>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <div className="w-10 h-10 bg-[#1B3A5C] rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Phone className="h-5 w-5 text-[#D4A843]" />
+                    <div className="flex items-start gap-3.5">
+                      <div className="w-10 h-10 bg-white/[0.06] rounded-xl flex items-center justify-center flex-shrink-0">
+                        <Phone className="h-4.5 w-4.5 text-[#D4A843]" />
                       </div>
                       <div>
-                        <p className="text-gray-400 text-xs font-semibold uppercase tracking-wider mb-0.5">
+                        <p className="text-gray-500 text-[11px] font-semibold uppercase tracking-wider mb-0.5">
                           Phone
                         </p>
                         <a
@@ -284,12 +303,12 @@ export default function ContactSection() {
                         </a>
                       </div>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <div className="w-10 h-10 bg-[#1B3A5C] rounded-lg flex items-center justify-center flex-shrink-0">
-                        <MapPin className="h-5 w-5 text-[#D4A843]" />
+                    <div className="flex items-start gap-3.5">
+                      <div className="w-10 h-10 bg-white/[0.06] rounded-xl flex items-center justify-center flex-shrink-0">
+                        <MapPin className="h-4.5 w-4.5 text-[#D4A843]" />
                       </div>
                       <div>
-                        <p className="text-gray-400 text-xs font-semibold uppercase tracking-wider mb-0.5">
+                        <p className="text-gray-500 text-[11px] font-semibold uppercase tracking-wider mb-0.5">
                           Location
                         </p>
                         <p className="text-white text-sm font-medium">
@@ -297,12 +316,12 @@ export default function ContactSection() {
                         </p>
                       </div>
                     </div>
-                    <div className="flex items-start gap-3">
-                      <div className="w-10 h-10 bg-[#1B3A5C] rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Clock className="h-5 w-5 text-[#D4A843]" />
+                    <div className="flex items-start gap-3.5">
+                      <div className="w-10 h-10 bg-white/[0.06] rounded-xl flex items-center justify-center flex-shrink-0">
+                        <Clock className="h-4.5 w-4.5 text-[#D4A843]" />
                       </div>
                       <div>
-                        <p className="text-gray-400 text-xs font-semibold uppercase tracking-wider mb-0.5">
+                        <p className="text-gray-500 text-[11px] font-semibold uppercase tracking-wider mb-0.5">
                           Business Hours
                         </p>
                         <p className="text-white text-sm font-medium">
@@ -317,7 +336,7 @@ export default function ContactSection() {
                     href="https://wa.me/918464842267"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-6 w-full inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BA5C] text-white px-6 py-3 rounded-lg font-semibold transition-colors text-sm"
+                    className="mt-7 w-full inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BA5C] text-white px-6 py-3.5 rounded-xl font-semibold transition-all duration-200 text-sm hover:shadow-lg hover:shadow-[#25D366]/20"
                   >
                     <MessageCircle className="h-5 w-5" />
                     Chat on WhatsApp
@@ -325,19 +344,21 @@ export default function ContactSection() {
                 </CardContent>
               </Card>
 
-              {/* Quick Response Promise */}
-              <Card className="border-0 shadow-md">
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 bg-[#D4A843]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Send className="h-5 w-5 text-[#D4A843]" />
+              {/* Trust Badges */}
+              <Card className="border border-gray-100 shadow-sm rounded-2xl">
+                <CardContent className="p-5">
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3">
+                      <CheckCircle2 className="h-4 w-4 text-[#D4A843] flex-shrink-0" />
+                      <span className="text-sm text-gray-600">Licensed Electrical Supervisor</span>
                     </div>
-                    <div>
-                      <h4 className="font-bold text-[#0C2340] text-sm">Quick Response</h4>
-                      <p className="text-gray-500 text-xs mt-1">
-                        We respond to all inquiries within 24 business hours. For urgent
-                        requirements, please call us directly or use WhatsApp.
-                      </p>
+                    <div className="flex items-center gap-3">
+                      <CheckCircle2 className="h-4 w-4 text-[#D4A843] flex-shrink-0" />
+                      <span className="text-sm text-gray-600">Chartered Engineer (IEI)</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <CheckCircle2 className="h-4 w-4 text-[#D4A843] flex-shrink-0" />
+                      <span className="text-sm text-gray-600">Chartered Electrical Safety Engineer</span>
                     </div>
                   </div>
                 </CardContent>
@@ -353,11 +374,12 @@ export default function ContactSection() {
             transition={{ duration: 0.6 }}
             className="mt-12"
           >
-            <div className="bg-gray-200 rounded-2xl h-64 lg:h-80 flex items-center justify-center border border-gray-300">
-              <div className="text-center text-gray-500">
-                <MapPin className="h-10 w-10 mx-auto mb-3 text-gray-400" />
-                <p className="font-semibold text-lg">Our Location</p>
-                <p className="text-sm">Hyderabad, Telangana, India</p>
+            <div className="bg-gradient-to-br from-[#f8f9fb] to-[#eef1f5] rounded-2xl h-64 lg:h-80 flex items-center justify-center border border-gray-100">
+              <div className="text-center">
+                <MapPin className="h-10 w-10 mx-auto mb-3 text-[#D4A843]/60" />
+                <p className="font-semibold text-[#0C2340] text-lg">Our Location</p>
+                <p className="text-gray-500 text-sm mt-1">Hyderabad, Telangana, India</p>
+                <p className="text-gray-400 text-xs mt-2">Google Maps integration coming soon</p>
               </div>
             </div>
           </motion.div>

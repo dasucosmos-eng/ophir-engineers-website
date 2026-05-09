@@ -56,17 +56,17 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  --background: #ffffff;
   --foreground: #1A1A2E;
-  --card: oklch(1 0 0);
+  --card: #ffffff;
   --card-foreground: #1A1A2E;
-  --popover: oklch(1 0 0);
+  --popover: #ffffff;
   --popover-foreground: #1A1A2E;
   --primary: #0C2340;
   --primary-foreground: #ffffff;
   --secondary: #1B3A5C;
   --secondary-foreground: #ffffff;
-  --muted: #f4f4f5;
+  --muted: #f8f9fb;
   --muted-foreground: #6b7280;
   --accent: #D4A843;
   --accent-foreground: #0C2340;
@@ -95,9 +95,13 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: 'cv11', 'ss01';
+    font-optical-sizing: auto;
   }
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   ::selection {
     background-color: #D4A843;
@@ -105,42 +109,132 @@
   }
 }
 
-/* Custom scrollbar */
-.custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
+/* ===== Custom Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 8px;
 }
-.custom-scrollbar::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   background: #f1f1f1;
-  border-radius: 3px;
 }
-.custom-scrollbar::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   background: #1B3A5C;
-  border-radius: 3px;
+  border-radius: 4px;
 }
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
   background: #0C2340;
 }
 
-/* Professional link hover effects */
-a.nav-link {
+/* ===== Navigation Link Underline Effect ===== */
+.nav-link {
   position: relative;
-  transition: color 0.2s ease;
+  transition: color 0.3s ease;
+  letter-spacing: 0.025em;
 }
-a.nav-link::after {
+.nav-link::after {
   content: '';
   position: absolute;
-  bottom: -2px;
-  left: 0;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 0;
   height: 2px;
-  background-color: #D4A843;
-  transition: width 0.3s ease;
+  background: linear-gradient(90deg, #D4A843, #E8C36A);
+  border-radius: 1px;
+  transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
-a.nav-link:hover::after,
-a.nav-link.active::after {
+.nav-link:hover::after,
+.nav-link.active::after {
   width: 100%;
 }
-a.nav-link:hover,
-a.nav-link.active {
+.nav-link:hover,
+.nav-link.active {
   color: #D4A843;
+}
+
+/* ===== Glass Effect for Header ===== */
+.glass-header {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+/* ===== Gold Gradient Text ===== */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #D4A843 0%, #E8C36A 50%, #D4A843 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== Shimmer Effect ===== */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 168, 67, 0.08) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* ===== Hero Animated Background ===== */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(1deg); }
+  66% { transform: translateY(5px) rotate(-1deg); }
+}
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+.float-animation-delay {
+  animation: float 8s ease-in-out 2s infinite;
+}
+
+/* ===== Pulse Ring Effect ===== */
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.5; }
+  50% { transform: scale(1); opacity: 0.3; }
+  100% { transform: scale(0.8); opacity: 0.5; }
+}
+.pulse-ring {
+  animation: pulse-ring 4s ease-in-out infinite;
+}
+
+/* ===== Card Hover Glow ===== */
+.card-glow {
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+.card-glow:hover {
+  box-shadow: 0 8px 30px rgba(12, 35, 64, 0.12), 0 2px 8px rgba(212, 168, 67, 0.08);
+}
+
+/* ===== Gradient Border Effect ===== */
+.gradient-border {
+  position: relative;
+}
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(135deg, #D4A843, #1B3A5C, #D4A843);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* ===== Smooth Section Fade ===== */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== WhatsApp Floating Button ===== */
+@keyframes bounce-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.whatsapp-float {
+  animation: bounce-gentle 2s ease-in-out infinite;
 }

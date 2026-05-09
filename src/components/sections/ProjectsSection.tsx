@@ -1,8 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Building2, Factory, Hammer, Wrench } from 'lucide-react';
+import { Building2, Factory, Wrench, Hammer, ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+
+interface ProjectsSectionProps {
+  setActiveSection: (section: string) => void;
+}
 
 const placeholderProjects = [
   {
@@ -43,21 +47,34 @@ const fadeUp = {
 const staggerContainer = {
   animate: {
     transition: {
-      staggerChildren: 0.15,
+      staggerChildren: 0.12,
     },
   },
 };
 
-export default function ProjectsSection() {
+export default function ProjectsSection({ setActiveSection }: ProjectsSectionProps) {
   return (
     <div>
       {/* Banner */}
-      <section className="bg-gradient-to-r from-[#0C2340] via-[#1B3A5C] to-[#0C2340] py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <motion.h1
+      <section className="relative bg-gradient-to-br from-[#060D1A] via-[#0C2340] to-[#1B3A5C] py-20 lg:py-24 overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.02]" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
+          backgroundSize: '40px 40px',
+        }} />
+        <div className="relative max-w-7xl mx-auto px-4 text-center">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+          >
+            <span className="inline-block text-[#D4A843] text-xs font-semibold tracking-[0.2em] uppercase mb-4">
+              Our Portfolio
+            </span>
+          </motion.div>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="text-3xl lg:text-5xl font-bold text-white"
           >
             Our Projects
@@ -66,7 +83,7 @@ export default function ProjectsSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-gray-300 mt-4 max-w-2xl mx-auto"
+            className="text-gray-400 mt-4 max-w-xl mx-auto text-base lg:text-lg"
           >
             Showcasing our expertise and successful project deliveries
           </motion.p>
@@ -74,14 +91,14 @@ export default function ProjectsSection() {
       </section>
 
       {/* Projects Content */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-20 lg:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-14"
           >
             <p className="text-gray-500 max-w-3xl mx-auto text-base lg:text-lg leading-relaxed">
               Our project portfolio showcases our expertise across various sectors including
@@ -98,14 +115,18 @@ export default function ProjectsSection() {
             className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8"
           >
             {placeholderProjects.map((project, index) => (
-              <motion.div key={index} variants={fadeUp}>
-                <Card className="h-full border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 group overflow-hidden">
+              <motion.div key={index} variants={fadeUp} transition={{ duration: 0.5 }}>
+                <Card className="h-full border border-gray-100 shadow-sm hover:shadow-xl card-glow rounded-2xl group overflow-hidden">
                   <CardContent className="p-0">
                     {/* Project Image Placeholder */}
-                    <div className="h-48 bg-gradient-to-br from-[#0C2340] to-[#1B3A5C] flex items-center justify-center relative">
-                      <project.icon className="h-16 w-16 text-white/20" />
+                    <div className="h-52 bg-gradient-to-br from-[#0C2340] via-[#0F2B4D] to-[#1B3A5C] flex items-center justify-center relative overflow-hidden">
+                      <div className="absolute inset-0 opacity-[0.03]" style={{
+                        backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
+                        backgroundSize: '20px 20px',
+                      }} />
+                      <project.icon className="h-16 w-16 text-white/10 group-hover:scale-110 transition-transform duration-500" />
                       <div className="absolute top-4 right-4">
-                        <span className="bg-[#D4A843] text-[#0C2340] text-xs font-bold px-3 py-1 rounded-full">
+                        <span className="bg-[#D4A843] text-[#0C2340] text-[11px] font-bold px-3 py-1 rounded-full tracking-wide uppercase">
                           {project.category}
                         </span>
                       </div>
@@ -124,23 +145,29 @@ export default function ProjectsSection() {
             ))}
           </motion.div>
 
-          {/* Coming Soon Message */}
+          {/* Coming Soon */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mt-12 text-center"
+            className="mt-14"
           >
-            <div className="bg-gray-50 rounded-2xl p-8 lg:p-12 border border-gray-200">
+            <div className="bg-gradient-to-br from-[#f8f9fb] to-white rounded-2xl p-8 lg:p-12 border border-gray-100 text-center">
               <h3 className="text-xl font-bold text-[#0C2340] mb-3">
                 More Projects Coming Soon
               </h3>
-              <p className="text-gray-500 max-w-xl mx-auto">
+              <p className="text-gray-500 max-w-xl mx-auto mb-6 text-sm">
                 We are continuously working on exciting projects across diverse sectors.
-                Stay tuned for detailed case studies and project highlights showcasing our
-                engineering capabilities.
+                Stay tuned for detailed case studies and project highlights.
               </p>
+              <button
+                onClick={() => setActiveSection('contact')}
+                className="inline-flex items-center gap-2 text-[#0C2340] font-semibold text-sm hover:text-[#1B3A5C] transition-colors group"
+              >
+                Discuss your project with us
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </button>
             </div>
           </motion.div>
         </div>

@@ -11,6 +11,7 @@ import {
   Warehouse,
   Landmark,
   HardHat,
+  ArrowRight,
 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -79,7 +80,7 @@ const fadeUp = {
 const staggerContainer = {
   animate: {
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.08,
     },
   },
 };
@@ -88,12 +89,25 @@ export default function IndustriesSection() {
   return (
     <div>
       {/* Banner */}
-      <section className="bg-gradient-to-r from-[#0C2340] via-[#1B3A5C] to-[#0C2340] py-16 lg:py-20">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <motion.h1
+      <section className="relative bg-gradient-to-br from-[#060D1A] via-[#0C2340] to-[#1B3A5C] py-20 lg:py-24 overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.02]" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
+          backgroundSize: '40px 40px',
+        }} />
+        <div className="relative max-w-7xl mx-auto px-4 text-center">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+          >
+            <span className="inline-block text-[#D4A843] text-xs font-semibold tracking-[0.2em] uppercase mb-4">
+              Our Reach
+            </span>
+          </motion.div>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="text-3xl lg:text-5xl font-bold text-white"
           >
             Industries We Serve
@@ -102,7 +116,7 @@ export default function IndustriesSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-gray-300 mt-4 max-w-2xl mx-auto"
+            className="text-gray-400 mt-4 max-w-xl mx-auto text-base lg:text-lg"
           >
             Versatile engineering expertise across diverse sectors
           </motion.p>
@@ -110,14 +124,14 @@ export default function IndustriesSection() {
       </section>
 
       {/* Industries Grid */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-20 lg:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-14"
           >
             <p className="text-gray-500 max-w-3xl mx-auto text-base lg:text-lg">
               Our extensive experience across multiple industries enables us to understand
@@ -131,25 +145,50 @@ export default function IndustriesSection() {
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
           >
             {industries.map((industry, index) => (
-              <motion.div key={index} variants={fadeUp}>
-                <Card className="h-full border-0 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
-                  <CardContent className="p-6">
-                    <div className="w-14 h-14 bg-[#0C2340] rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-[#1B3A5C] transition-all duration-300">
-                      <industry.icon className="h-7 w-7 text-[#D4A843]" />
+              <motion.div key={index} variants={fadeUp} transition={{ duration: 0.5 }}>
+                <Card className="h-full border border-gray-100 bg-white shadow-sm hover:shadow-xl card-glow rounded-2xl group cursor-default overflow-hidden">
+                  <CardContent className="p-7 relative">
+                    {/* Hover gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#0C2340]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
+                    <div className="relative">
+                      <div className="w-14 h-14 bg-gradient-to-br from-[#0C2340] to-[#1B3A5C] rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 group-hover:from-[#1B3A5C] group-hover:to-[#2A5078] transition-all duration-300 shadow-md shadow-[#0C2340]/10">
+                        <industry.icon className="h-7 w-7 text-[#D4A843]" />
+                      </div>
+                      <h3 className="text-lg font-bold text-[#0C2340] mb-2.5 group-hover:text-[#1B3A5C] transition-colors">
+                        {industry.title}
+                      </h3>
+                      <p className="text-gray-500 text-sm leading-relaxed">
+                        {industry.description}
+                      </p>
                     </div>
-                    <h3 className="text-lg font-bold text-[#0C2340] mb-2 group-hover:text-[#1B3A5C] transition-colors">
-                      {industry.title}
-                    </h3>
-                    <p className="text-gray-500 text-sm leading-relaxed">
-                      {industry.description}
-                    </p>
                   </CardContent>
                 </Card>
               </motion.div>
             ))}
+          </motion.div>
+
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mt-16 text-center"
+          >
+            <p className="text-gray-500 mb-4">Don&apos;t see your industry listed?</p>
+            <button
+              onClick={() => {
+                const event = new CustomEvent('navigate', { detail: 'contact' });
+                window.dispatchEvent(event);
+              }}
+              className="inline-flex items-center gap-2 text-[#0C2340] font-semibold text-sm hover:text-[#1B3A5C] transition-colors group"
+            >
+              Talk to us about your specific requirements
+              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </button>
           </motion.div>
         </div>
       </section>
