@@ -122,7 +122,7 @@ export default function ServicesSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block text-[#D4A843] text-xs font-semibold tracking-[0.2em] uppercase mb-4">
+            <span className="inline-block text-[#F6DCAA] text-xs font-semibold tracking-[0.2em] uppercase mb-4">
               What We Offer
             </span>
           </motion.div>
@@ -160,7 +160,7 @@ export default function ServicesSection() {
                 <Card className="h-full border border-gray-100 bg-white shadow-sm hover:shadow-lg card-glow rounded-2xl cursor-default">
                   <CardContent className="p-5 text-center">
                     <div className="w-12 h-12 mx-auto bg-gradient-to-br from-[#0C2340] to-[#1B3A5C] rounded-xl flex items-center justify-center mb-3 shadow-md shadow-[#0C2340]/10 group-hover:scale-110 transition-transform duration-300">
-                      <service.icon className="h-6 w-6 text-[#D4A843]" />
+                      <service.icon className="h-6 w-6 text-[#F6DCAA]" />
                     </div>
                     <h3 className="text-[13px] font-bold text-[#0C2340] leading-tight">
                       {service.title}
@@ -192,12 +192,12 @@ export default function ServicesSection() {
                 <AccordionItem
                   key={service.id}
                   value={service.id}
-                  className="border border-gray-100 rounded-2xl px-6 shadow-sm data-[state=open]:shadow-lg data-[state=open]:border-[#D4A843]/20 transition-all duration-300 bg-white"
+                  className="border border-gray-100 rounded-2xl px-6 shadow-sm data-[state=open]:shadow-lg data-[state=open]:border-[#F6DCAA]/20 transition-all duration-300 bg-white"
                 >
-                  <AccordionTrigger className="hover:no-underline py-5 [&>svg]:text-[#D4A843]">
+                  <AccordionTrigger className="hover:no-underline py-5 [&>svg]:text-[#F6DCAA]">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 bg-gradient-to-br from-[#0C2340] to-[#1B3A5C] rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm">
-                        <service.icon className="h-5 w-5 text-[#D4A843]" />
+                        <service.icon className="h-5 w-5 text-[#F6DCAA]" />
                       </div>
                       <div className="text-left">
                         <span className="text-base font-bold text-[#0C2340]">
@@ -220,7 +220,7 @@ export default function ServicesSection() {
                             key={idx}
                             className="flex items-start gap-2.5 text-gray-600 text-sm"
                           >
-                            <CheckCircle2 className="h-4 w-4 text-[#D4A843] flex-shrink-0 mt-0.5" />
+                            <CheckCircle2 className="h-4 w-4 text-[#F6DCAA] flex-shrink-0 mt-0.5" />
                             <span>{item}</span>
                           </li>
                         ))}

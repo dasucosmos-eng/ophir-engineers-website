@@ -66,7 +66,7 @@ export default function AboutSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block text-[#D4A843] text-xs font-semibold tracking-[0.2em] uppercase mb-4">
+            <span className="inline-block text-[#F6DCAA] text-xs font-semibold tracking-[0.2em] uppercase mb-4">
               Who We Are
             </span>
           </motion.div>
@@ -99,7 +99,7 @@ export default function AboutSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <span className="inline-block text-[#D4A843] text-xs font-semibold tracking-[0.2em] uppercase mb-3">
+              <span className="inline-block text-[#F6DCAA] text-xs font-semibold tracking-[0.2em] uppercase mb-3">
                 Our Story
               </span>
               <div className="space-y-5 text-gray-600 leading-[1.8] text-base">
@@ -129,7 +129,7 @@ export default function AboutSection() {
                   backgroundSize: '24px 24px',
                 }} />
                 <div className="relative">
-                  <Eye className="h-12 w-12 text-[#D4A843] mx-auto mb-4" />
+                  <Eye className="h-12 w-12 text-[#F6DCAA] mx-auto mb-4" />
                   <h3 className="text-xl font-bold text-white mb-2">Our Vision</h3>
                   <p className="text-gray-300 text-sm leading-relaxed max-w-sm mx-auto">
                     To be a nationally recognized leader in electrical engineering consultancy,
@@ -138,7 +138,7 @@ export default function AboutSection() {
                 </div>
               </div>
               {/* Decorative corner */}
-              <div className="absolute -bottom-4 -left-4 w-24 h-24 border-2 border-[#D4A843]/20 rounded-2xl -z-10" />
+              <div className="absolute -bottom-4 -left-4 w-24 h-24 border-2 border-[#F6DCAA]/20 rounded-2xl -z-10" />
             </motion.div>
           </div>
         </div>
@@ -154,7 +154,7 @@ export default function AboutSection() {
             transition={{ duration: 0.6 }}
             className="text-center mb-14"
           >
-            <span className="inline-block text-[#D4A843] text-xs font-semibold tracking-[0.2em] uppercase mb-3">
+            <span className="inline-block text-[#F6DCAA] text-xs font-semibold tracking-[0.2em] uppercase mb-3">
               Our Strengths
             </span>
             <h2 className="text-3xl lg:text-4xl font-bold text-[#0C2340] mb-4">
@@ -177,7 +177,7 @@ export default function AboutSection() {
                 <Card className="h-full border border-gray-100 bg-white shadow-sm hover:shadow-xl card-glow rounded-2xl">
                   <CardContent className="p-7 text-center">
                     <div className="w-16 h-16 mx-auto bg-gradient-to-br from-[#0C2340] to-[#1B3A5C] rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 shadow-md shadow-[#0C2340]/10">
-                      <item.icon className="h-8 w-8 text-[#D4A843]" />
+                      <item.icon className="h-8 w-8 text-[#F6DCAA]" />
                     </div>
                     <h3 className="text-lg font-bold text-[#0C2340] mb-2">{item.title}</h3>
                     <p className="text-gray-500 text-sm leading-relaxed">{item.description}</p>
@@ -199,7 +199,7 @@ export default function AboutSection() {
             transition={{ duration: 0.6 }}
             className="text-center mb-14"
           >
-            <span className="inline-block text-[#D4A843] text-xs font-semibold tracking-[0.2em] uppercase mb-3">
+            <span className="inline-block text-[#F6DCAA] text-xs font-semibold tracking-[0.2em] uppercase mb-3">
               What Drives Us
             </span>
             <h2 className="text-3xl lg:text-4xl font-bold text-[#0C2340] mb-4">
@@ -216,9 +216,9 @@ export default function AboutSection() {
           >
             {values.map((value, index) => (
               <motion.div key={index} variants={fadeUp} transition={{ duration: 0.5 }}>
-                <div className="flex items-start gap-4 p-5 rounded-2xl border border-gray-100 hover:border-[#D4A843]/20 transition-colors bg-white group">
-                  <div className="w-11 h-11 bg-[#D4A843]/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#D4A843]/20 transition-colors">
-                    <value.icon className="h-5 w-5 text-[#D4A843]" />
+                <div className="flex items-start gap-4 p-5 rounded-2xl border border-gray-100 hover:border-[#F6DCAA]/20 transition-colors bg-white group">
+                  <div className="w-11 h-11 bg-[#F6DCAA]/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#F6DCAA]/20 transition-colors">
+                    <value.icon className="h-5 w-5 text-[#F6DCAA]" />
                   </div>
                   <div>
                     <h4 className="font-bold text-[#0C2340] text-sm mb-1">{value.title}</h4>
@@ -245,7 +245,7 @@ export default function AboutSection() {
             transition={{ duration: 0.6 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <div className="inline-flex items-center gap-2 bg-[#D4A843]/10 text-[#D4A843] px-4 py-2 rounded-full text-xs font-semibold mb-6 tracking-wider uppercase border border-[#D4A843]/20">
+            <div className="inline-flex items-center gap-2 bg-[#F6DCAA]/10 text-[#F6DCAA] px-4 py-2 rounded-full text-xs font-semibold mb-6 tracking-wider uppercase border border-[#F6DCAA]/20">
               Our Mission
             </div>
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">

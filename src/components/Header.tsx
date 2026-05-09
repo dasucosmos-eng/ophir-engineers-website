@@ -69,7 +69,7 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
                 <div className="flex flex-wrap items-center gap-4 sm:gap-6">
                   <a
                     href="mailto:office@ophirengineers.com"
-                    className="flex items-center gap-1.5 hover:text-[#D4A843] transition-colors duration-200"
+                    className="flex items-center gap-1.5 hover:text-[#F6DCAA] transition-colors duration-200"
                   >
                     <Mail className="h-3.5 w-3.5" />
                     <span className="hidden sm:inline">office@ophirengineers.com</span>
@@ -77,7 +77,7 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
                   </a>
                   <a
                     href="tel:+918464842267"
-                    className="flex items-center gap-1.5 hover:text-[#D4A843] transition-colors duration-200"
+                    className="flex items-center gap-1.5 hover:text-[#F6DCAA] transition-colors duration-200"
                   >
                     <Phone className="h-3.5 w-3.5" />
                     <span>+91 8464842267</span>
@@ -120,7 +120,7 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
                 <span className="text-[#0C2340] font-bold text-base lg:text-lg tracking-wide leading-tight">
                   OPHIR ENGINEERS
                 </span>
-                <span className="text-[#D4A843] text-[10px] lg:text-xs tracking-[0.2em] uppercase leading-tight font-medium">
+                <span className="text-[#F6DCAA] text-[10px] lg:text-xs tracking-[0.2em] uppercase leading-tight font-medium">
                   & Consultants
                 </span>
               </div>
@@ -169,7 +169,7 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
                       <span className="text-white font-bold text-lg tracking-wide">
                         OPHIR ENGINEERS
                       </span>
-                      <p className="text-[#D4A843] text-xs tracking-[0.15em] uppercase">
+                      <p className="text-[#F6DCAA] text-xs tracking-[0.15em] uppercase">
                         & Consultants
                       </p>
                     </div>

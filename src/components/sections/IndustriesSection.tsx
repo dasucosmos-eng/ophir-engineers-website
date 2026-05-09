@@ -100,7 +100,7 @@ export default function IndustriesSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block text-[#D4A843] text-xs font-semibold tracking-[0.2em] uppercase mb-4">
+            <span className="inline-block text-[#F6DCAA] text-xs font-semibold tracking-[0.2em] uppercase mb-4">
               Our Reach
             </span>
           </motion.div>
@@ -155,7 +155,7 @@ export default function IndustriesSection() {
                     <div className="absolute inset-0 bg-gradient-to-br from-[#0C2340]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
                     <div className="relative">
                       <div className="w-14 h-14 bg-gradient-to-br from-[#0C2340] to-[#1B3A5C] rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 group-hover:from-[#1B3A5C] group-hover:to-[#2A5078] transition-all duration-300 shadow-md shadow-[#0C2340]/10">
-                        <industry.icon className="h-7 w-7 text-[#D4A843]" />
+                        <industry.icon className="h-7 w-7 text-[#F6DCAA]" />
                       </div>
                       <h3 className="text-lg font-bold text-[#0C2340] mb-2.5 group-hover:text-[#1B3A5C] transition-colors">
                         {industry.title}

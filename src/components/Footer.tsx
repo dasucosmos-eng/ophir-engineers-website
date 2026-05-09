@@ -38,7 +38,7 @@ export default function Footer({ setActiveSection }: FooterProps) {
   return (
     <footer className="bg-[#070F1C] text-white">
       {/* CTA Strip */}
-      <div className="bg-gradient-to-r from-[#D4A843] to-[#B8922E]">
+      <div className="bg-gradient-to-r from-[#F6DCAA] to-[#D1BB90]">
         <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-[#0C2340] font-semibold text-sm sm:text-base">
             Ready to power your next project?
@@ -80,7 +80,7 @@ export default function Footer({ setActiveSection }: FooterProps) {
                 <span className="text-white font-bold text-base tracking-wide">
                   OPHIR ENGINEERS
                 </span>
-                <p className="text-[#D4A843] text-[10px] tracking-[0.15em] uppercase">
+                <p className="text-[#F6DCAA] text-[10px] tracking-[0.15em] uppercase">
                   & Consultants
                 </p>
               </div>
@@ -104,7 +104,7 @@ export default function Footer({ setActiveSection }: FooterProps) {
                 <li key={link.key}>
                   <button
                     onClick={() => handleQuickLinkClick(link.key)}
-                    className="text-gray-400 hover:text-[#D4A843] transition-colors text-sm duration-200 hover:translate-x-1 inline-block"
+                    className="text-gray-400 hover:text-[#F6DCAA] transition-colors text-sm duration-200 hover:translate-x-1 inline-block"
                   >
                     {link.label}
                   </button>
@@ -123,7 +123,7 @@ export default function Footer({ setActiveSection }: FooterProps) {
                 <li key={service}>
                   <button
                     onClick={() => handleQuickLinkClick('services')}
-                    className="text-gray-400 hover:text-[#D4A843] transition-colors text-sm duration-200 hover:translate-x-1 inline-block"
+                    className="text-gray-400 hover:text-[#F6DCAA] transition-colors text-sm duration-200 hover:translate-x-1 inline-block"
                   >
                     {service}
                   </button>
@@ -140,18 +140,18 @@ export default function Footer({ setActiveSection }: FooterProps) {
             <div className="space-y-3.5">
               <a
                 href="mailto:office@ophirengineers.com"
-                className="flex items-center gap-2.5 text-gray-400 hover:text-[#D4A843] transition-colors text-sm group"
+                className="flex items-center gap-2.5 text-gray-400 hover:text-[#F6DCAA] transition-colors text-sm group"
               >
-                <div className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-[#D4A843]/10 transition-colors">
+                <div className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-[#F6DCAA]/10 transition-colors">
                   <Mail className="h-3.5 w-3.5" />
                 </div>
                 <span>office@ophirengineers.com</span>
               </a>
               <a
                 href="tel:+918464842267"
-                className="flex items-center gap-2.5 text-gray-400 hover:text-[#D4A843] transition-colors text-sm group"
+                className="flex items-center gap-2.5 text-gray-400 hover:text-[#F6DCAA] transition-colors text-sm group"
               >
-                <div className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-[#D4A843]/10 transition-colors">
+                <div className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-[#F6DCAA]/10 transition-colors">
                   <Phone className="h-3.5 w-3.5" />
                 </div>
                 <span>+91 8464842267</span>
@@ -172,7 +172,7 @@ export default function Footer({ setActiveSection }: FooterProps) {
         <div className="max-w-7xl mx-auto px-4 py-8">
           <div className="bg-[#0C2340] rounded-2xl h-48 flex items-center justify-center border border-white/5">
             <div className="text-center">
-              <MapPin className="h-8 w-8 mx-auto mb-2 text-[#D4A843]/60" />
+              <MapPin className="h-8 w-8 mx-auto mb-2 text-[#F6DCAA]/60" />
               <p className="text-gray-400 font-medium text-sm">Our Location — Hyderabad, Telangana</p>
               <p className="text-gray-500 text-xs mt-1">Google Maps integration coming soon</p>
             </div>
@@ -188,7 +188,7 @@ export default function Footer({ setActiveSection }: FooterProps) {
           </p>
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 text-gray-500 hover:text-[#D4A843] text-xs transition-colors group"
+            className="flex items-center gap-1.5 text-gray-500 hover:text-[#F6DCAA] text-xs transition-colors group"
           >
             <span>Back to top</span>
             <ArrowUp className="h-3 w-3 group-hover:-translate-y-0.5 transition-transform" />

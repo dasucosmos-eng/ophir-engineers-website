@@ -67,7 +67,7 @@ export default function ProjectsSection({ setActiveSection }: ProjectsSectionPro
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block text-[#D4A843] text-xs font-semibold tracking-[0.2em] uppercase mb-4">
+            <span className="inline-block text-[#F6DCAA] text-xs font-semibold tracking-[0.2em] uppercase mb-4">
               Our Portfolio
             </span>
           </motion.div>
@@ -126,7 +126,7 @@ export default function ProjectsSection({ setActiveSection }: ProjectsSectionPro
                       }} />
                       <project.icon className="h-16 w-16 text-white/10 group-hover:scale-110 transition-transform duration-500" />
                       <div className="absolute top-4 right-4">
-                        <span className="bg-[#D4A843] text-[#0C2340] text-[11px] font-bold px-3 py-1 rounded-full tracking-wide uppercase">
+                        <span className="bg-[#F6DCAA] text-[#0C2340] text-[11px] font-bold px-3 py-1 rounded-full tracking-wide uppercase">
                           {project.category}
                         </span>
                       </div>

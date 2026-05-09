@@ -100,7 +100,7 @@ export default function ContactSection({ setActiveSection }: ContactSectionProps
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block text-[#D4A843] text-xs font-semibold tracking-[0.2em] uppercase mb-4">
+            <span className="inline-block text-[#F6DCAA] text-xs font-semibold tracking-[0.2em] uppercase mb-4">
               Get In Touch
             </span>
           </motion.div>
@@ -273,7 +273,7 @@ export default function ContactSection({ setActiveSection }: ContactSectionProps
                   <div className="space-y-5">
                     <div className="flex items-start gap-3.5">
                       <div className="w-10 h-10 bg-white/[0.06] rounded-xl flex items-center justify-center flex-shrink-0">
-                        <Mail className="h-4.5 w-4.5 text-[#D4A843]" />
+                        <Mail className="h-4.5 w-4.5 text-[#F6DCAA]" />
                       </div>
                       <div>
                         <p className="text-gray-500 text-[11px] font-semibold uppercase tracking-wider mb-0.5">
@@ -281,7 +281,7 @@ export default function ContactSection({ setActiveSection }: ContactSectionProps
                         </p>
                         <a
                           href="mailto:office@ophirengineers.com"
-                          className="text-white hover:text-[#D4A843] transition-colors text-sm font-medium"
+                          className="text-white hover:text-[#F6DCAA] transition-colors text-sm font-medium"
                         >
                           office@ophirengineers.com
                         </a>
@@ -289,7 +289,7 @@ export default function ContactSection({ setActiveSection }: ContactSectionProps
                     </div>
                     <div className="flex items-start gap-3.5">
                       <div className="w-10 h-10 bg-white/[0.06] rounded-xl flex items-center justify-center flex-shrink-0">
-                        <Phone className="h-4.5 w-4.5 text-[#D4A843]" />
+                        <Phone className="h-4.5 w-4.5 text-[#F6DCAA]" />
                       </div>
                       <div>
                         <p className="text-gray-500 text-[11px] font-semibold uppercase tracking-wider mb-0.5">
@@ -297,7 +297,7 @@ export default function ContactSection({ setActiveSection }: ContactSectionProps
                         </p>
                         <a
                           href="tel:+918464842267"
-                          className="text-white hover:text-[#D4A843] transition-colors text-sm font-medium"
+                          className="text-white hover:text-[#F6DCAA] transition-colors text-sm font-medium"
                         >
                           +91 8464842267
                         </a>
@@ -305,7 +305,7 @@ export default function ContactSection({ setActiveSection }: ContactSectionProps
                     </div>
                     <div className="flex items-start gap-3.5">
                       <div className="w-10 h-10 bg-white/[0.06] rounded-xl flex items-center justify-center flex-shrink-0">
-                        <MapPin className="h-4.5 w-4.5 text-[#D4A843]" />
+                        <MapPin className="h-4.5 w-4.5 text-[#F6DCAA]" />
                       </div>
                       <div>
                         <p className="text-gray-500 text-[11px] font-semibold uppercase tracking-wider mb-0.5">
@@ -318,7 +318,7 @@ export default function ContactSection({ setActiveSection }: ContactSectionProps
                     </div>
                     <div className="flex items-start gap-3.5">
                       <div className="w-10 h-10 bg-white/[0.06] rounded-xl flex items-center justify-center flex-shrink-0">
-                        <Clock className="h-4.5 w-4.5 text-[#D4A843]" />
+                        <Clock className="h-4.5 w-4.5 text-[#F6DCAA]" />
                       </div>
                       <div>
                         <p className="text-gray-500 text-[11px] font-semibold uppercase tracking-wider mb-0.5">
@@ -349,15 +349,15 @@ export default function ContactSection({ setActiveSection }: ContactSectionProps
                 <CardContent className="p-5">
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
-                      <CheckCircle2 className="h-4 w-4 text-[#D4A843] flex-shrink-0" />
+                      <CheckCircle2 className="h-4 w-4 text-[#F6DCAA] flex-shrink-0" />
                       <span className="text-sm text-gray-600">Licensed Electrical Supervisor</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <CheckCircle2 className="h-4 w-4 text-[#D4A843] flex-shrink-0" />
+                      <CheckCircle2 className="h-4 w-4 text-[#F6DCAA] flex-shrink-0" />
                       <span className="text-sm text-gray-600">Chartered Engineer (IEI)</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <CheckCircle2 className="h-4 w-4 text-[#D4A843] flex-shrink-0" />
+                      <CheckCircle2 className="h-4 w-4 text-[#F6DCAA] flex-shrink-0" />
                       <span className="text-sm text-gray-600">Chartered Electrical Safety Engineer</span>
                     </div>
                   </div>
@@ -376,7 +376,7 @@ export default function ContactSection({ setActiveSection }: ContactSectionProps
           >
             <div className="bg-gradient-to-br from-[#f8f9fb] to-[#eef1f5] rounded-2xl h-64 lg:h-80 flex items-center justify-center border border-gray-100">
               <div className="text-center">
-                <MapPin className="h-10 w-10 mx-auto mb-3 text-[#D4A843]/60" />
+                <MapPin className="h-10 w-10 mx-auto mb-3 text-[#F6DCAA]/60" />
                 <p className="font-semibold text-[#0C2340] text-lg">Our Location</p>
                 <p className="text-gray-500 text-sm mt-1">Hyderabad, Telangana, India</p>
                 <p className="text-gray-400 text-xs mt-2">Google Maps integration coming soon</p>

@@ -45,9 +45,9 @@
   /* Ophir Engineering Custom Colors */
   --color-navy: #0C2340;
   --color-navy-light: #1B3A5C;
-  --color-gold: #D4A843;
-  --color-gold-light: #E8C36A;
-  --color-gold-dark: #B8922E;
+  --color-gold: #F6DCAA;
+  --color-gold-light: #FFF2BB;
+  --color-gold-dark: #D1BB90;
   --color-steel: #1B3A5C;
   --color-steel-light: #2A5078;
   --color-whatsapp: #25D366;
@@ -68,17 +68,17 @@
   --secondary-foreground: #ffffff;
   --muted: #f8f9fb;
   --muted-foreground: #6b7280;
-  --accent: #D4A843;
+  --accent: #F6DCAA;
   --accent-foreground: #0C2340;
   --destructive: oklch(0.577 0.245 27.325);
   --border: #e5e7eb;
   --input: #e5e7eb;
   --ring: #0C2340;
   --chart-1: #0C2340;
-  --chart-2: #D4A843;
+  --chart-2: #F6DCAA;
   --chart-3: #1B3A5C;
   --chart-4: #2A5078;
-  --chart-5: #E8C36A;
+  --chart-5: #FFF2BB;
   --sidebar: #f8f9fa;
   --sidebar-foreground: #1A1A2E;
   --sidebar-primary: #0C2340;
@@ -104,7 +104,7 @@
     -moz-osx-font-smoothing: grayscale;
   }
   ::selection {
-    background-color: #D4A843;
+    background-color: #F6DCAA;
     color: #0C2340;
   }
 }
@@ -138,7 +138,7 @@
   transform: translateX(-50%);
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #D4A843, #E8C36A);
+  background: linear-gradient(90deg, #F6DCAA, #FFF2BB);
   border-radius: 1px;
   transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
@@ -148,7 +148,7 @@
 }
 .nav-link:hover,
 .nav-link.active {
-  color: #D4A843;
+  color: #F6DCAA;
 }
 
 /* ===== Glass Effect for Header ===== */
@@ -160,7 +160,7 @@
 
 /* ===== Gold Gradient Text ===== */
 .text-gold-gradient {
-  background: linear-gradient(135deg, #D4A843 0%, #E8C36A 50%, #D4A843 100%);
+  background: linear-gradient(135deg, #F6DCAA 0%, #FFF2BB 50%, #F6DCAA 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -218,7 +218,7 @@
   inset: 0;
   border-radius: inherit;
   padding: 1.5px;
-  background: linear-gradient(135deg, #D4A843, #1B3A5C, #D4A843);
+  background: linear-gradient(135deg, #F6DCAA, #1B3A5C, #F6DCAA);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
